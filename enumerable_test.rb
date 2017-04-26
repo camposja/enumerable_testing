@@ -37,7 +37,6 @@ describe "Enumerable" do
   end
 
   it "implements find correctly when there is a match" do
-    skip
     results = @reimplements_enumerable.find { |book| book.year > 1970 }
 
     assert_equal @h2g2, results

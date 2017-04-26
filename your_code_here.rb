@@ -40,6 +40,16 @@ class ReimplementEnumerable
     return result
   end
 
-
+  def find
+    result = nil
+    @collection.each do |element|
+      found = yield(element)
+      if found
+        result = element
+      break
+      end
+    end
+    result
+  end
 
 end
