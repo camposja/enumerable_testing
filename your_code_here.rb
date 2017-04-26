@@ -49,7 +49,7 @@ class ReimplementEnumerable
       break
       end
     end
-    result
+    return result
   end
 
   def each_with_index
@@ -69,7 +69,53 @@ class ReimplementEnumerable
       end
       count += 1
     end
-    result
+    return result
+  end
+
+  def reject
+    result = []
+    @collection.each do |element|
+      rejected = yield(element)
+      unless rejected
+        result << element
+      end
+    end
+    return result
+  end
+
+  def drop_while
+  index = 0
+  @collection.each do |element|
+    result = yield(element)
+    unless result
+      return @collection[index..-1]
+    end
+    index += 1
+  end
+  return []
+  end
+
+  def find_index
+    index = 0
+    result = nil
+    @collection.each do |element|
+      to_find = yield(element)
+      if to_find
+        result = index
+        break
+      end
+      index += 1
+    end
+    return result
+  end
+
+  def include?(input)
+    @collection.each do |element|
+      if element == input
+        return true
+      end
+    end
+    return false
   end
 
 end
