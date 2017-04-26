@@ -21,8 +21,8 @@ class ReimplementEnumerable
 
   def all?
     @collection.each do |element|
-      chimichanga = yield(element)
-      if !chimichanga
+      items = yield(element)
+      if !items
         return false
       end
     end
