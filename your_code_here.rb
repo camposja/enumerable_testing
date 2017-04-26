@@ -52,4 +52,24 @@ class ReimplementEnumerable
     result
   end
 
+  def each_with_index
+    index = 0
+    @collection.each do |element|
+      yield(element, index)
+      index += 1
+    end
+  end
+
+  def drop(input)
+    count = 0
+    result = []
+    @collection.each do |element|
+      if count >= input
+        result << element
+      end
+      count += 1
+    end
+    result
+  end
+
 end

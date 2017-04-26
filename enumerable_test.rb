@@ -43,14 +43,12 @@ describe "Enumerable" do
   end
 
   it "implements find correctly when there is not a match" do
-    skip
     results = @reimplements_enumerable.find { |book| book.year < 1492 }
 
     assert_nil results
   end
 
   it "implements each_with_index correctly" do
-    skip
     object_results = []
     index_results = []
 
@@ -64,7 +62,6 @@ describe "Enumerable" do
   end
 
   it "implements drop correctly" do
-    skip
     assert_equal [@moby_dick, @pride], @reimplements_enumerable.drop(2)
   end
 
