@@ -117,5 +117,4 @@ class ReimplementEnumerable
     end
     return false
   end
-
 end
